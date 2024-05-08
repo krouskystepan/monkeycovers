@@ -3,12 +3,12 @@ import Image from 'next/image'
 import { HTMLAttributes } from 'react'
 
 interface PhoneProps extends HTMLAttributes<HTMLDivElement> {
-  imageSrc: string
+  imgSrc: string
   dark?: boolean
 }
 
 export default function Phone({
-  imageSrc,
+  imgSrc,
   dark = false,
   className,
   ...props
@@ -35,10 +35,11 @@ export default function Phone({
       />
       <div className="absolute inset-0 -z-10">
         <Image
-          src={imageSrc}
+          src={imgSrc}
           alt={'Phone image'}
           className="object-cover"
           fill
+          sizes="256px"
         />
       </div>
     </div>

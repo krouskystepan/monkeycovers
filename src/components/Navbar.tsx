@@ -10,7 +10,7 @@ export default async function Navbar() {
   const isAdmin = user?.email === process.env.ADMIN_EMAIL
 
   return (
-    <nav className="sticky inset-x-0 top-0 z-[100] h-14 w-full border-b border-border bg-white/85 backdrop-blur-lg transition-all">
+    <nav className="sticky inset-x-0 top-0 z-[100] h-14 w-full border-b border-border bg-background/85 backdrop-blur-lg transition-all">
       <Wrapper>
         <div className="flex h-14 items-center justify-between border-b border-border">
           <Link href="/" className="z-40 flex font-semibold">
