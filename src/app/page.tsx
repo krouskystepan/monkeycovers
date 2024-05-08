@@ -80,7 +80,7 @@ export default function Home() {
               <Image
                 src={'/your-image.png'}
                 alt="Image"
-                className="absolute -top-20 left-56 hidden w-40 select-none md:block lg:hidden lg:w-52 xl:block"
+                className="absolute -top-20 left-56 hidden w-40 select-none md:block lg:hidden lg:w-52 2xl:block"
                 width={620}
                 height={430}
               />
@@ -91,7 +91,10 @@ export default function Home() {
                 width={340}
                 height={610}
               />
-              <Phone className="w-64" imageSrc="/testimonials/1.png" />
+              <Phone
+                className="w-64 select-none"
+                imageSrc="/testimonials/1.png"
+              />
             </div>
           </div>
         </Wrapper>

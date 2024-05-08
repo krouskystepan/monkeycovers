@@ -2,15 +2,17 @@ import Link from 'next/link'
 import Wrapper from './Wrapper'
 import { buttonVariants } from './ui/button'
 import { ArrowRight } from 'lucide-react'
+import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server'
 
-export default function Navbar() {
-  const user = undefined
-  const isAdmin = false
+export default async function Navbar() {
+  const { getUser } = getKindeServerSession()
+  const user = await getUser()
+  const isAdmin = user?.email === process.env.ADMIN_EMAIL
 
   return (
-    <nav className="sticky inset-x-0 top-0 z-[100] h-14 w-full border-b border-secondary bg-white/85 backdrop-blur-lg transition-all">
+    <nav className="sticky inset-x-0 top-0 z-[100] h-14 w-full border-b border-border bg-white/85 backdrop-blur-lg transition-all">
       <Wrapper>
-        <div className="flex h-14 items-center justify-between border-b border-secondary">
+        <div className="flex h-14 items-center justify-between border-b border-border">
           <Link href="/" className="z-40 flex font-semibold">
             <span className="text-primary">Monkey</span>Covers
           </Link>
