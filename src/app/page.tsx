@@ -253,14 +253,14 @@ export default function Home() {
               />
               <div className="relative h-80 max-w-sm rounded-xl bg-foreground/5 ring ring-inset ring-foreground/5 md:h-full md:justify-self-end lg:rounded-2xl">
                 <Image
-                  src={'/people_dog.jpg'}
+                  src={'/dog.jpg'}
                   alt="Image"
                   width={400}
                   height={400}
-                  className="size-full rounded-md bg-background object-cover object-center shadow-2xl ring-1 ring-foreground/10"
+                  className="size-full rounded-md bg-background object-cover object-bottom shadow-2xl ring-1 ring-foreground/10 md:w-60"
                 />
               </div>
-              <Phone className="w-60" imgSrc="/people_dog_phone.jpg" />
+              <Phone className="w-60" imgSrc="/dog-phone.jpg" />
             </div>
           </div>
           <ul className="mx-auto mt-12 w-fit max-w-prose space-y-2 sm:text-lg">
