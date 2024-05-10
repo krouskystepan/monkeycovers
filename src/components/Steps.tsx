@@ -41,7 +41,7 @@ export default function Steps() {
                 className={cn(
                   'absolute left-0 top-0 h-full w-1 bg-secondary lg:bottom-0 lg:top-auto lg:h-1 lg:w-full',
                   {
-                    'bg-foreground': isCurrent,
+                    'bg-foreground/50': isCurrent,
                     'bg-primary': isCompleted,
                   }
                 )}
