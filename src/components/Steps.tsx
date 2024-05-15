@@ -86,7 +86,7 @@ export default function Steps() {
               </span>
 
               {/* separator */}
-              {i !== 0 ? (
+              {i !== 0 && (
                 <div className="absolute inset-0 hidden w-5 lg:block">
                   <svg
                     className="size-full text-muted-foreground"
@@ -101,7 +101,7 @@ export default function Steps() {
                     />
                   </svg>
                 </div>
-              ) : null}
+              )}
             </div>
           </li>
         )

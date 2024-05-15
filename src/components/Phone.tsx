@@ -37,7 +37,7 @@ export default function Phone({
         <Image
           src={imgSrc}
           alt={'Phone image'}
-          className="object-cover"
+          className="min-h-full min-w-full object-cover"
           fill
           sizes="256px"
         />

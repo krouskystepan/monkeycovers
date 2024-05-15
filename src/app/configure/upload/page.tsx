@@ -15,8 +15,8 @@ import Dropzone, { FileRejection } from 'react-dropzone'
 
 export default function Page() {
   const { toast } = useToast()
-  const [isDragOver, setIsDragOver] = useState<boolean>(false)
-  const [uploadProgress, setUploadProgress] = useState<number>(0)
+  const [isDragOver, setIsDragOver] = useState(false)
+  const [uploadProgress, setUploadProgress] = useState(0)
   const router = useRouter()
 
   const { startUpload, isUploading } = useUploadThing('imageUploader', {
