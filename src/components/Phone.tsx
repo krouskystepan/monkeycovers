@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { cn } from '@/lib/utils'
 import Image from 'next/image'
 import { HTMLAttributes } from 'react'
@@ -21,7 +22,7 @@ export default function Phone({
       )}
       {...props}
     >
-      <Image
+      <img
         src={
           dark
             ? // TODO: Edit dark version
@@ -30,16 +31,12 @@ export default function Phone({
         }
         alt={'Phone image'}
         className="pointer-events-none z-50 select-none"
-        width={900}
-        height={1850}
       />
       <div className="absolute inset-0 -z-10">
-        <Image
+        <img
           src={imgSrc}
           alt={'Phone image'}
           className="min-h-full min-w-full object-cover"
-          fill
-          sizes="256px"
         />
       </div>
     </div>
