@@ -25,17 +25,21 @@ enum PhoneModel {
 enum CaseMaterial {
   silicone
   polycarbonate
+  leather
 }
 
 enum CaseFinish {
   smooth
-  textured
+  matte
+  glossy
 }
 
 enum CaseColor {
   black
-  blue
   rose
+  blue
+  purple
+  green
 }
 
 model Configuration {

@@ -1,8 +1,8 @@
 'use server'
 
-import { BASE_PRICE, PRODUCT_PRICES } from '@/config/products'
 import { db } from '@/db'
 import { stripe } from '@/lib/stripe'
+import { calculateTotalPrice } from '@/lib/utils'
 import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server'
 import { Order } from '@prisma/client'
 
@@ -28,11 +28,6 @@ export const createCheckoutSession = async ({
 
   const { finish, material } = configuration
 
-  let price = BASE_PRICE
-  if (finish === 'textured') price += PRODUCT_PRICES.finish.textured
-  if (material === 'polycarbonate')
-    price += PRODUCT_PRICES.material.polycarbonate
-
   let order: Order | undefined = undefined
 
   const existingOrder = await db.order.findFirst({
@@ -47,7 +42,7 @@ export const createCheckoutSession = async ({
   } else {
     order = await db.order.create({
       data: {
-        amount: price / 100,
+        amount: calculateTotalPrice(material!, finish!) / 100,
         userId: user.id,
         configurationId: configuration.id,
       },
@@ -59,7 +54,7 @@ export const createCheckoutSession = async ({
     images: [configuration.imageUrl],
     default_price_data: {
       currency: 'USD',
-      unit_amount: price,
+      unit_amount: calculateTotalPrice(material!, finish!),
     },
   })
 

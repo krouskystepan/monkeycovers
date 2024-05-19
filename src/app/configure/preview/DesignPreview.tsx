@@ -6,15 +6,37 @@ import { useState, useEffect } from 'react'
 import Confetti from 'react-dom-confetti'
 import { useKindeBrowserClient } from '@kinde-oss/kinde-auth-nextjs'
 import { Configuration } from '@prisma/client'
-import { cn, formatPrice } from '@/lib/utils'
+import { calculateTotalPrice, cn, formatPrice } from '@/lib/utils'
 import Phone from '@/components/Phone'
-import { COLORS, MODELS } from '@/validators/option-validator'
-import { BASE_PRICE, PRODUCT_PRICES } from '@/config/products'
+import {
+  COLORS,
+  FINISHES,
+  MATERIALS,
+  MODELS,
+  Option,
+} from '@/validators/option-validator'
+import { BASE_PRICE } from '@/config/products'
 import { ArrowRight, Check } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useMutation } from '@tanstack/react-query'
 import { createCheckoutSession } from './actions'
 import LoginModal from '@/components/LoginModal'
+
+const findOption = (
+  options: readonly Option[],
+  value: string
+): Option | undefined => options.find((option) => option.value === value)
+
+const renderPriceDetail = (price: number, description?: string) => (
+  <div className="mt-2 flex items-center justify-between py-1">
+    <div>
+      {description && (
+        <p className="text-sm text-muted-foreground">{description}</p>
+      )}
+    </div>
+    <p className="font-medium text-foreground">{formatPrice(price / 100)}</p>
+  </div>
+)
 
 export default function DesignPreview({
   configuration,
@@ -37,11 +59,6 @@ export default function DesignPreview({
   const { label: modelLabel } = MODELS.options.find(
     ({ value }) => value === model
   )!
-
-  let totalPrice = BASE_PRICE
-  if (material === 'polycarbonate')
-    totalPrice += PRODUCT_PRICES.material.polycarbonate
-  if (finish === 'textured') totalPrice += PRODUCT_PRICES.finish.textured
 
   const { mutate: createPaymentSession } = useMutation({
     mutationKey: ['get-checkout-session'],
@@ -69,6 +86,9 @@ export default function DesignPreview({
       setIsLoginModalOpen(true)
     }
   }
+
+  const selectedMaterial = findOption(MATERIALS.options, material!)
+  const selectedFinish = findOption(FINISHES.options, finish!)
 
   return (
     <>
@@ -134,32 +154,23 @@ export default function DesignPreview({
                   </p>
                 </div>
 
-                {finish === 'textured' && (
-                  <div className="mt-2 flex items-center justify-between py-1">
-                    <p className="text-muted-foreground">Textured finish</p>
-                    <p className="font-medium text-foreground">
-                      {formatPrice(PRODUCT_PRICES.finish.textured / 100)}
-                    </p>
-                  </div>
-                )}
-
-                {material === 'polycarbonate' && (
-                  <div className="mt-2 flex items-center justify-between py-1">
-                    <p className="text-muted-foreground">
-                      Soft polycarbonate material
-                    </p>
-                    <p className="font-medium text-foreground">
-                      {formatPrice(PRODUCT_PRICES.material.polycarbonate / 100)}
-                    </p>
-                  </div>
-                )}
+                {selectedMaterial &&
+                  renderPriceDetail(
+                    selectedMaterial.price,
+                    selectedMaterial.description
+                  )}
+                {selectedFinish &&
+                  renderPriceDetail(
+                    selectedFinish.price,
+                    selectedFinish.description
+                  )}
 
                 <div className="my-2 h-px bg-border" />
 
                 <div className="flex items-center justify-between py-2">
                   <p className="font-semibold text-foreground">Order total</p>
                   <p className="font-semibold text-foreground">
-                    {formatPrice(totalPrice / 100)}
+                    {formatPrice(calculateTotalPrice(material!, finish!) / 100)}
                   </p>
                 </div>
               </div>
