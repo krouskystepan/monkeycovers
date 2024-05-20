@@ -35,20 +35,18 @@ export default function Home() {
                 your phone.
               </p>
               <ul className="mt-8 flex flex-col items-center space-y-2 text-left font-medium sm:items-start">
-                <div className="space-y-2">
-                  <li className="flex items-center gap-1.5 text-left">
-                    <Check className="size-5 shrink-0 text-primary" />
-                    Premium craftsmanship and durability
-                  </li>
-                  <li className="flex items-center gap-1.5 text-left">
-                    <Check className="size-5 shrink-0 text-primary" />
-                    Guaranteed quality for 5 years
-                  </li>
-                  <li className="flex items-center gap-1.5 text-left">
-                    <Check className="size-5 shrink-0 text-primary" />
-                    Compatible with the latest iPhone models
-                  </li>
-                </div>
+                <li className="flex items-center gap-1.5 text-left">
+                  <Check className="size-5 shrink-0 text-primary" />
+                  Premium craftsmanship and durability
+                </li>
+                <li className="flex items-center gap-1.5 text-left">
+                  <Check className="size-5 shrink-0 text-primary" />
+                  Guaranteed quality for 5 years
+                </li>
+                <li className="flex items-center gap-1.5 text-left">
+                  <Check className="size-5 shrink-0 text-primary" />
+                  Compatible with the latest iPhone models
+                </li>
               </ul>
               <div className="mt-12 flex flex-col items-center gap-5 sm:flex-row sm:items-start">
                 <div className="flex -space-x-4">
@@ -280,19 +278,18 @@ export default function Home() {
               <Check className="mr-1.5 inline size-5 text-primary" />
               Print warranty for 3 years
             </li>
-
-            <div className="flex justify-center">
-              <Link
-                href="/configure/upload"
-                className={buttonVariants({
-                  size: 'lg',
-                  className: 'mx-auto mt-8',
-                })}
-              >
-                Create your case now <ArrowRight className="ml-1.5 size-4" />
-              </Link>
-            </div>
           </ul>
+          <div className="flex justify-center">
+            <Link
+              href="/configure/upload"
+              className={buttonVariants({
+                size: 'lg',
+                className: 'mx-auto mt-8',
+              })}
+            >
+              Create your case now <ArrowRight className="ml-1.5 size-4" />
+            </Link>
+          </div>
         </Wrapper>
       </section>
     </div>

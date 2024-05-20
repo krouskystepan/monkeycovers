@@ -134,7 +134,7 @@ export default function DesignPreview({
           <div className="grid grid-cols-1 gap-y-8 border-b border-border py-8 sm:grid-cols-2 sm:gap-x-6 sm:py-6 md:py-10">
             <div>
               <p className="font-medium text-foreground">Highlights</p>
-              <ol className="mt-3 list-inside list-disc text-zinc-700">
+              <ol className="mt-3 list-inside list-disc text-muted-foreground">
                 <li>Wireless charging compatible</li>
                 <li>TPU shock absorption</li>
                 <li>Packaging made from recycled materials</li>
