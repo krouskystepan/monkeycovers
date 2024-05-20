@@ -44,19 +44,7 @@ export const MODELS = {
   ],
 } as const
 
-export type Option = {
-  readonly label: string
-  readonly value: string
-  readonly description?: string
-  readonly price: number
-}
-
-type Config = {
-  readonly name: string
-  readonly options: readonly Option[]
-}
-
-export const MATERIALS: Config = {
+export const MATERIALS = {
   name: 'material',
   options: [
     {
@@ -80,7 +68,7 @@ export const MATERIALS: Config = {
   ],
 } as const
 
-export const FINISHES: Config = {
+export const FINISHES = {
   name: 'finish',
   options: [
     {

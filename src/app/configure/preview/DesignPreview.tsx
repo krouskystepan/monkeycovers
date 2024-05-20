@@ -13,7 +13,6 @@ import {
   FINISHES,
   MATERIALS,
   MODELS,
-  Option,
 } from '@/validators/option-validator'
 import { BASE_PRICE } from '@/config/products'
 import { ArrowRight, Check } from 'lucide-react'
@@ -21,6 +20,13 @@ import { Button } from '@/components/ui/button'
 import { useMutation } from '@tanstack/react-query'
 import { createCheckoutSession } from './actions'
 import LoginModal from '@/components/LoginModal'
+
+type Option = {
+  readonly label: string
+  readonly value: string
+  readonly description?: string
+  readonly price: number
+}
 
 const findOption = (
   options: readonly Option[],
