@@ -112,13 +112,12 @@ export default function DesignPreview({
 
       <div className="mt-20 flex flex-col items-center text-sm sm:grid-cols-12 sm:grid-rows-1 sm:gap-x-6 md:grid md:gap-x-8 lg:gap-x-12">
         <div className="md:col-span-4 md:row-span-2 md:row-end-2 lg:col-span-3">
-          <Phone
-            className={cn(
-              `bg-${tw}`,
-              'max-w-[150px] md:max-w-full rounded-[2.35rem]'
-            )}
-            imgSrc={configuration.croppedImageUrl!}
-          />
+          <div className="rounded-[2.25rem] bg-accent p-6">
+            <Phone
+              className={cn(`bg-${tw}`, 'max-w-[150px] md:max-w-full')}
+              imgSrc={configuration.croppedImageUrl!}
+            />
+          </div>
         </div>
         <div className="mt-6 sm:col-span-9 md:row-end-1">
           <h3 className="text-3xl font-bold tracking-tight text-foreground">
