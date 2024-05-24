@@ -36,7 +36,7 @@ export const calculateTotalPrice = (
 export function constructMetadata({
   title = 'MonkeyCovers',
   description = 'Create custom high-quality phone cases in seconds',
-  // image = '/thumbnail.png',
+  image = '/thumbnail.png',
   icons = '/favicon.ico',
 }: {
   title?: string
@@ -50,13 +50,13 @@ export function constructMetadata({
     openGraph: {
       title,
       description,
-      // images: [{ url: image }],
+      images: [{ url: image }],
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
-      // images: [image],
+      images: [image],
     },
     icons,
     metadataBase: new URL('https://monkeycovers.vercel.app/'),
