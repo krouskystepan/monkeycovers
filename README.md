@@ -24,9 +24,9 @@ Powered by Next.js 14 App Router, Postgres, TypeScript, Tailwind & Kinde Auth
 
 To get up and running with this project, execute:
 
-\`\`\`bash
+```bash
 git clone https://github.com/krouskystepan/monkeycovers.git
-\`\`\`
+```
 
 Copy the .env.example variables into a new .env file, complete the necessary details, and you're good to go!
 
