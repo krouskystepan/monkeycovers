@@ -255,7 +255,7 @@ export default function DesignConfigurator({
                         <span
                           className={cn(
                             `bg-${color.tw}`,
-                            'h-8 w-8 rounded-full border border-foreground border-opacity-10'
+                            'h-8 w-8 rounded-full border border-background border-opacity-10 dark:ring-1 dark:ring-accent'
                           )}
                         />
                       </RadioGroup.Option>

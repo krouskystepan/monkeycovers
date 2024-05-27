@@ -3,6 +3,7 @@ import Wrapper from './Wrapper'
 import { buttonVariants } from './ui/button'
 import { ArrowRight } from 'lucide-react'
 import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server'
+import ThemeToggle from './ThemeToggle'
 
 export default async function Navbar() {
   const { getUser } = getKindeServerSession()
@@ -18,6 +19,7 @@ export default async function Navbar() {
           </Link>
 
           <div className="flex h-full items-center space-x-3">
+            <ThemeToggle />
             {user ? (
               <>
                 <Link

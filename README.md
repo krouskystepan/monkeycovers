@@ -10,6 +10,7 @@ Powered by Next.js 14 App Router, Postgres, TypeScript, Tailwind & Kinde Auth
 
 - 🛠️ Entire shop created from scratch using Next.js 14
 - 💻 Stunning landing page included
+- 🌙 Dark mode support
 - 💳 Exclusive admin dashboard for order management
 - 🖥️ Easy drag-and-drop file uploads
 - 🛍️ Direct sales to customers

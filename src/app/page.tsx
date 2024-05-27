@@ -106,14 +106,14 @@ export default function Home() {
               <Image
                 src={'/your-image.png'}
                 alt="Image"
-                className="absolute -top-20 left-56 hidden w-40 select-none md:block lg:hidden lg:w-52 2xl:block"
+                className="absolute -top-20 left-56 hidden w-40 select-none dark:hidden md:block lg:hidden lg:w-52 2xl:block"
                 width={620}
                 height={430}
               />
               <Image
                 src={'/line.png'}
                 alt="Image"
-                className="absolute -bottom-6 -left-6 w-20 select-none"
+                className="absolute -bottom-6 -left-6 w-20 select-none dark:hidden"
                 width={340}
                 height={610}
               />
@@ -247,7 +247,7 @@ export default function Home() {
                 width={130}
                 height={35}
                 alt="Arrow"
-                className="absolute left-1/2 top-[25rem] z-10 -translate-x-1/2 -translate-y-1/2 rotate-90 md:top-1/2 md:rotate-0"
+                className="absolute left-1/2 top-[25rem] z-10 -translate-x-1/2 -translate-y-1/2 rotate-90 dark:hidden md:top-1/2 md:rotate-0"
               />
               <div className="relative h-80 max-w-sm rounded-xl bg-foreground/5 ring ring-inset ring-foreground/5 md:h-full md:justify-self-end lg:rounded-2xl">
                 <Image

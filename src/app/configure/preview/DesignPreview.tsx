@@ -170,7 +170,7 @@ export default function DesignPreview({
                     selectedFinish.description
                   )}
 
-                <div className="my-2 h-px bg-border" />
+                <div className="my-2 h-px bg-border dark:bg-background/80" />
 
                 <div className="flex items-center justify-between py-2">
                   <p className="font-semibold text-foreground">Order total</p>

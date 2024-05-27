@@ -1,19 +1,37 @@
+'use client'
+
 /* eslint-disable @next/next/no-img-element */
 import { cn } from '@/lib/utils'
-import Image from 'next/image'
-import { HTMLAttributes } from 'react'
+import { useTheme } from 'next-themes'
+import { HTMLAttributes, Suspense } from 'react'
 
 interface PhoneProps extends HTMLAttributes<HTMLDivElement> {
   imgSrc: string
-  dark?: boolean
 }
 
-export default function Phone({
-  imgSrc,
-  dark = false,
-  className,
-  ...props
-}: PhoneProps) {
+export default function Phone({ imgSrc, className, ...props }: PhoneProps) {
+  const { resolvedTheme } = useTheme()
+
+  if (resolvedTheme === 'system' || !resolvedTheme) {
+    return (
+      <Suspense>
+        <div
+          className={cn(
+            'relative pointer-events-none z-50 overflow-hidden',
+            className
+          )}
+          {...props}
+        >
+          <img
+            src={'/phone-template.png'}
+            alt={'Phone image'}
+            className="pointer-events-none z-50 select-none"
+          />
+        </div>
+      </Suspense>
+    )
+  }
+
   return (
     <div
       className={cn(
@@ -24,9 +42,8 @@ export default function Phone({
     >
       <img
         src={
-          dark
-            ? // TODO: Edit dark version
-              '/phone-template-dark-edges.png'
+          resolvedTheme === 'dark'
+            ? '/phone-template-dark-edges.png'
             : '/phone-template-white-edges.png'
         }
         alt={'Phone image'}
